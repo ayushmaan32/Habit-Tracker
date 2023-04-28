@@ -4,11 +4,15 @@
   "description": "A habit tracker app tracks daily day to day acitivities",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "habit"
   ],
   "author": "AyushmaanRoy",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
