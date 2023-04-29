@@ -4,6 +4,10 @@ const port = 5000;
 
 const app = express();
 
+const expressLayouts = require("express-ejs-layouts");
+
+app.use(expressLayouts);
+
 //use express router
 app.use("/", require("./routes"));
 
