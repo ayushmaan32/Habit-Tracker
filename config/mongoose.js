@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/habit_tracker_development", {
+mongoose.connect("mongodb://localhost/habit_tracker_dev", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   family: 4,

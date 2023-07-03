@@ -9,6 +9,7 @@ module.exports.signUp = function (req, res) {
 
 // Renders the SignIn Page
 module.exports.signIn = function (req, res) {
+  console.log("....");
   return res.render("users_sign_in", {
     title: "Habit Traker ",
   });
@@ -33,4 +34,30 @@ module.exports.create = async function (req, res) {
     console.log("error in signing up: ", err);
     return;
   }
+};
+
+module.exports.createSession = function (req, res) {
+  console.log(req.body, "hello");
+  // const { name, email } = req.body;
+  //---------Checking user in database----------//
+  User.findOne({
+    // email: req.body.email,
+  }).then((user) => {
+    if (!user) {
+      console.log(req.body);
+      let errors = [];
+      errors.push({ msg: "This email is not registered" });
+      res.render("users_sign_in", {
+        title: "Habit Traker ",
+        errors,
+        // name,
+        // email,
+      });
+    }
+    //---------Redirect to dashboard----------//
+    else {
+      console.log(req.body);
+      res.redirect("/dashboard");
+    }
+  });
 };
