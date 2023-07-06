@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="/css/dashboard.css" />
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/"> <strong> Habit Tracker</strong></a>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/details">Details</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <button class="btn btn-primary">Log Out</button>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- container for habits -->
+<div class="container" id="box">
+  <!-- input to add habits -->
+
+  <div id="add-habit-form" class="rounded bg-blue shadow p-3 mb-5">
+    <form action="/dashboard/create-habit" method="POST">
+      <div class="form-group">
+        <label for="inputAddress">What habit do you want to create?</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            name="habit"
+            placeholder="Enter the habit name"
+            required
+          />
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">
+              <i class="fa fa-plus"></i> Create Habit
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- <a class="btn btn-primary" href="/details" role="button" id="btn-streak"
+    ><i class="fa fa-check"></i> Show My Streak</a
+  > -->
+
+  <!-- list for habits -->
+
+  <div>
+    <ul class="list-group shadow mt-2" id="habits">
+      <%for(let i of habit_list){%>
+      <li class="list-group-item habit">
+        <div class="habit-info">
+          <!-- <span><i class="fa fa-check"></i></span> -->
+          <span id="habit-name"><h4><%= i.habit %></h4> </span>
+          <div>
+            <form
+              action="/weekly-details/update-habit/?id=<%=i._id%>&day=one&val=<%=i.days.one%>"
+              method="POST"
+              id="streak-container"
+            >
+              <button class="btn btn-change-status" type="submit">
+                <%=i.days.one%>
+              </button>
+            </form>
+            <a
+              class="btn btn-danger"
+              href="/dashboard/delete-habit/?id=<%=i._id%>"
+            >
+              <i class="fa fa-times"></i> Remove
+            </a>
+          </div>
+        </div>
+        <!-- <div class="row habit-streak">
+          <%if(i.end!=""){ %>
+          <p class="col-lg-3">Ending on : <%=i.end%></p>
+          <%}else{%>
+          <p class="col-lg-3">Building this forever</p>
+          <%}%>
+          <p class="col-lg-3"><%=i.description%></p>
+          <p class="col-lg-3">Streak :<%=i.streak%>/7</p>
+          <p class="col-lg-3"><%=i.time%> <%=i.frequency%></p>
+        </div> -->
+      </li>
+      <%}%>
+    </ul>
+  </div>
+</div>

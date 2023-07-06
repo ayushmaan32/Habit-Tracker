@@ -41,7 +41,7 @@ module.exports.createSession = function (req, res) {
   // const { name, email } = req.body;
   //---------Checking user in database----------//
   User.findOne({
-    // email: req.body.email,
+    email: req.body.email,
   }).then((user) => {
     if (!user) {
       console.log(req.body);
@@ -57,7 +57,7 @@ module.exports.createSession = function (req, res) {
     //---------Redirect to dashboard----------//
     else {
       console.log(req.body);
-      res.redirect("/dashboard");
+      res.redirect(`/dashboard?user=${user._id}`);
     }
   });
 };
