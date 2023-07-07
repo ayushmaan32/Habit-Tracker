@@ -1,5 +1,5 @@
 const Habit = require("../models/habits");
-const { json } = require("express");
+// const { json } = require("express");
 
 // controller for weekly details
 module.exports.weeklyDetails = function (req, res) {

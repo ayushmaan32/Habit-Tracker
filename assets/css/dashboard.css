@@ -32,18 +32,7 @@
   text-transform: capitalize;
   margin: 0;
 }
-/* the streak for a particular habit in list */
-/* .habit-streak {
-  margin-right: 2%;
-  margin-left: 2%;
-} */
-/* .habit-streak p {
-  margin: 0;
-} */
-/* .checked {
-  text-decoration: line-through;
-} */
-/* Streak button */
+
 #streak-container {
   display: inline-block;
 }

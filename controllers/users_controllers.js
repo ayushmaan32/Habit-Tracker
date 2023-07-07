@@ -62,6 +62,7 @@ module.exports.createSession = function (req, res) {
   });
 };
 
+// controller for log out
 module.exports.logOut = function (req, res) {
   return res.redirect("/users/signin");
 };
