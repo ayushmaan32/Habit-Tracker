@@ -56,7 +56,7 @@ module.exports.createSession = function (req, res) {
     }
     //---------Redirect to dashboard----------//
     else {
-      console.log(req.body);
+      // console.log(req.body);
       res.redirect(`/dashboard?user=${user._id}`);
     }
   });
