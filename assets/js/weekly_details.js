@@ -1,12 +1,11 @@
 // getting month and year
-console.log("weekly");
 
-const date = new Date(); // Replace this with your actual date
+const date = new Date();
 
 const options = { month: "long", year: "numeric" };
 const formattedDate = date.toLocaleDateString("en-US", options);
 
-console.log(formattedDate);
+// console.log(formattedDate);
 
 document.getElementById("month-name").innerText = formattedDate;
 
