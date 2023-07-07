@@ -7,18 +7,18 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/"
+        <a class="nav-link" href="/dashboard"
           >Home <span class="sr-only">(current)</span></a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/details">Details</a>
+        <a class="nav-link" href="/weekly-details">Weekly</a>
       </li>
     </ul>
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/users/log-out">
           <button class="btn btn-primary">Log Out</button>
         </a>
       </li>
@@ -33,12 +33,12 @@
   <div id="add-habit-form" class="rounded bg-blue shadow p-3 mb-5">
     <form action="/dashboard/create-habit" method="POST">
       <div class="form-group">
-        <label for="inputAddress">What habit do you want to create?</label>
+        <label for="inputAdd">What habit do you want to create?</label>
         <div class="input-group">
           <input
             type="text"
             class="form-control"
-            id="inputAddress"
+            id="inputAdd"
             name="habit"
             placeholder="Enter the habit name"
             required
@@ -53,18 +53,13 @@
     </form>
   </div>
 
-  <!-- <a class="btn btn-primary" href="/details" role="button" id="btn-streak"
-    ><i class="fa fa-check"></i> Show My Streak</a
-  > -->
-
   <!-- list for habits -->
 
   <div>
-    <ul class="list-group shadow mt-2" id="habits">
+    <ul class="list-group mt-2" id="habits">
       <%for(let i of habit_list){%>
-      <li class="list-group-item habit">
+      <li class="list-group-item shadow habit">
         <div class="habit-info">
-          <!-- <span><i class="fa fa-check"></i></span> -->
           <span id="habit-name"><h4><%= i.habit %></h4> </span>
           <div>
             <form
@@ -80,22 +75,13 @@
               class="btn btn-danger"
               href="/dashboard/delete-habit/?id=<%=i._id%>"
             >
-              <i class="fa fa-times"></i> Remove
+              <i class="fa fa-times"></i>
             </a>
           </div>
         </div>
-        <!-- <div class="row habit-streak">
-          <%if(i.end!=""){ %>
-          <p class="col-lg-3">Ending on : <%=i.end%></p>
-          <%}else{%>
-          <p class="col-lg-3">Building this forever</p>
-          <%}%>
-          <p class="col-lg-3"><%=i.description%></p>
-          <p class="col-lg-3">Streak :<%=i.streak%>/7</p>
-          <p class="col-lg-3"><%=i.time%> <%=i.frequency%></p>
-        </div> -->
       </li>
       <%}%>
     </ul>
   </div>
 </div>
+<script type="text/javascript" src="js/dashboard.js"></script>

@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="/css/week_details.css" />
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/"> <strong> Habit Tracker</strong></a>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/dashboard"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/weekly-details">Weekly</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/users/log-out">
+          <button class="btn btn-primary">Log Out</button>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- heading -->
+<div id="heading">
+  <h1 class="text-center">Weekly Details(<span id="month-name"></span>)</h1>
+</div>
+<!-- container for habits -->
+<div class="container rounded bg-white shadow p-3 mb-5" id="box">
+  <!-- list for habits -->
+  <div>
+    <ul class="week-days" id="weekname">
+      <li class="list-group-item day-name"><strong></strong></li>
+      <li class="list-group-item day-name"></li>
+      <li class="list-group-item day-name"></li>
+      <li class="list-group-item day-name"></li>
+      <li class="list-group-item day-name"></li>
+      <li class="list-group-item day-name"></li>
+      <li class="list-group-item day-name"></li>
+    </ul>
+    <ul class="list-group" id="habits">
+      <%for(let i of habit_list){%>
+      <li class="list-group-item list-group-item-warning habit">
+        <div class="row habit-streak">
+          <span id="habit-name"><h4><%= i.habit %></h4> </span>
+
+          <p class="col-lg-3">Streak : <%=i.streak%>/7</p>
+        </div>
+        <!-- List to show the week days record -->
+        <ul class="week-days">
+          <form
+            action="/weekly-details/update-habit/?id=<%=i._id%>&day=one&val=<%=i.days.one%>"
+            method="POST"
+          >
+            <button class="list-group-item days" type="submit">
+              <%=i.days.one%>
+            </button>
+          </form>
+          <form
+            action="/weekly-details/update-habit/?id=<%=i._id%>&day=two&val=<%=i.days.two%>"
+            method="POST"
+          >
+            <button class="list-group-item days" type="submit">
+              <%=i.days.two%>
+            </button>
+          </form>
+          <form
+            action="/weekly-details/update-habit/?id=<%=i._id%>&day=three&val=<%=i.days.three%>"
+            method="POST"
+          >
+            <button class="list-group-item days" type="submit">
+              <%=i.days.three%>
+            </button>
+          </form>
+          <form
+            action="/weekly-details/update-habit/?id=<%=i._id%>&day=four&val=<%=i.days.four%>"
+            method="POST"
+          >
+            <button class="list-group-item days" type="submit">
+              <%=i.days.four%>
+            </button>
+          </form>
+          <form
+            action="/weekly-details/update-habit/?id=<%=i._id%>&day=five&val=<%=i.days.five%>"
+            method="POST"
+          >
+            <button class="list-group-item days" type="submit">
+              <%=i.days.five%>
+            </button>
+          </form>
+          <form
+            action="/weekly-details/update-habit/?id=<%=i._id%>&day=six&val=<%=i.days.six%>"
+            method="POST"
+          >
+            <button class="list-group-item days" type="submit">
+              <%=i.days.six%>
+            </button>
+          </form>
+          <!-- Shows Todays Record -->
+          <form
+            action="/weekly-details/update-habit/?id=<%=i._id%>&day=seven&val=<%=i.days.seven%>"
+            method="POST"
+          >
+            <button class="list-group-item days" type="submit">
+              <%=i.days.seven%>
+            </button>
+          </form>
+        </ul>
+      </li>
+      <%}%>
+    </ul>
+  </div>
+</div>
+<!-- js file -->
+<script type="text/javascript" src="/js/weekly_details.js"></script>

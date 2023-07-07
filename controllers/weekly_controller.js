@@ -1,6 +1,21 @@
 const Habit = require("../models/habits");
 const { json } = require("express");
 
+// controller for weekly details
+module.exports.weeklyDetails = function (req, res) {
+  Habit.find({})
+    .then((habits) => {
+      return res.render("weekly", {
+        title: "Habit Tracker",
+        habit_list: habits,
+      });
+    })
+    .catch((err) => {
+      console.log("Error in fetching the habits", err);
+      return res.redirect("/");
+    });
+};
+
 // Updating the database for the request
 module.exports.updateHabit = function (req, res) {
   let id = req.query.id;

@@ -2,40 +2,16 @@
 #add-habit-form {
   position: absolute;
   top: 14%;
-
   left: auto;
   background-color: rgb(216, 223, 230);
-
   width: 85%;
-  /* padding: 2% !important; */
 }
-/* add habbits button */
-#btn-add-habit {
-  position: absolute;
-  top: 11%;
-  left: 38%;
-  z-index: 1;
-}
-/* streak button */
-#btn-streak {
-  position: absolute;
-  top: 11%;
-  left: 50%;
-  z-index: 1;
-}
-/* styling box */
-/* #box {
-  margin-top: 3%;
-  padding: 3% !important;
-} */
-
 /* box containing habits */
 #box ul {
   position: absolute;
   top: 30vh;
   max-height: 60vh;
   width: 85%;
-  /* overflow-y: auto; */
 }
 /* list iems showing habits */
 #habits li {
@@ -45,6 +21,7 @@
 .list-group-item {
   color: darkslategray;
   background-color: rgb(111, 215, 219);
+  margin-bottom: 20px;
 }
 /* info for a particular habit */
 .habit-info {
@@ -56,16 +33,16 @@
   margin: 0;
 }
 /* the streak for a particular habit in list */
-.habit-streak {
+/* .habit-streak {
   margin-right: 2%;
   margin-left: 2%;
-}
-.habit-streak p {
+} */
+/* .habit-streak p {
   margin: 0;
-}
-.checked {
+} */
+/* .checked {
   text-decoration: line-through;
-}
+} */
 /* Streak button */
 #streak-container {
   display: inline-block;

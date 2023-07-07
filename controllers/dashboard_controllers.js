@@ -3,7 +3,6 @@ const Habit = require("../models/habits");
 
 //---------Dashboard GET----------//
 
-// dashboardController.js
 module.exports.dashboard = function (req, res) {
   const userId = req.query.user;
 
@@ -54,10 +53,10 @@ module.exports.createHabit = function (req, res) {
     });
 };
 
+// controller to delete a habit
 module.exports.deleteHabit = function (req, res) {
   let id = req.query.id;
 
-  // Deleting the habit
   Habit.findByIdAndDelete(id)
     .then(() => {
       return res.redirect("back");

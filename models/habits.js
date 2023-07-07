@@ -6,14 +6,12 @@ const habitSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
-    dates: {
+    date: {
       date: String,
-      complete: String,
     },
-    favorite: {
-      type: Boolean,
-      default: false,
+    streak: {
+      type: Number,
+      default: 0,
     },
     days: {
       one: {
