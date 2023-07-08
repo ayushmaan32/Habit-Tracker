@@ -13,6 +13,11 @@
   max-height: 60vh;
   width: 85%;
 }
+
+.user-info {
+  text-transform: uppercase;
+  font-weight: 700;
+}
 /* list iems showing habits */
 #habits li {
   display: flex;

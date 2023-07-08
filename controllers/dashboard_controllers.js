@@ -3,24 +3,42 @@ const Habit = require("../models/habits");
 
 //---------Dashboard GET----------//
 
-module.exports.dashboard = function (req, res) {
-  const userId = req.query.user;
+module.exports.dashboard = async function (req, res) {
+  try {
+    const email = req.query.user;
 
-  User.findOne({ _id: userId })
-    .then((user) => {
-      return Habit.find({}).exec();
-    })
-    .then((habits) => {
-      // console.log(habits);
-      res.render("dashboard", {
-        habit_list: habits,
-        title: "Habit Tracker",
-      });
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Internal Server Error");
+    const user = await User.findOne({ email });
+    // console.log(user);
+    const habits = await Habit.find({ email }).exec();
+    res.render("dashboard", {
+      habit_list: habits,
+      user,
+      title: "Habit Tracker",
     });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+
+  // const userId = req.query.user;
+  // console.log(userId);
+  // User.findOne({ _id: userId })
+  //   .then((user) => {
+  //     console.log(user);
+  //     return Habit.find({ email: req.query.user }).exec();
+  //   })
+  //   .then((habits) => {
+  //     // console.log(habits);
+  //     res.render("dashboard", {
+  //       habit_list: habits,
+  //       userId,
+  //       title: "Habit Tracker",
+  //     });
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //     res.status(500).send("Internal Server Error");
+  //   });
 };
 
 // controller to create a habit
@@ -40,11 +58,12 @@ module.exports.createHabit = function (req, res) {
     habit: req.body.habit,
     date: Date(),
     days: days,
+    email: req.query.email,
   };
 
   Habit.create(habitData)
     .then((newHabit) => {
-      // console.log(newHabit);
+      console.log(newHabit);
       return res.redirect("back");
     })
     .catch((err) => {

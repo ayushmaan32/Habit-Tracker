@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="/css/week_details.css" />
-
 <!-- Navbar -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -8,12 +7,9 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/dashboard"
+        <a class="nav-link" href="/dashboard?user=<%= user %>"
           >Home <span class="sr-only">(current)</span></a
         >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/weekly-details">Weekly</a>
       </li>
     </ul>
 
@@ -117,5 +113,7 @@
     </ul>
   </div>
 </div>
+
+<%= habit_list.email %>
 <!-- js file -->
 <script type="text/javascript" src="/js/weekly_details.js"></script>

@@ -9,7 +9,7 @@ module.exports.signUp = function (req, res) {
 
 // Renders the SignIn Page
 module.exports.signIn = function (req, res) {
-  console.log("....");
+  // console.log("....");
   return res.render("users_sign_in", {
     title: "Habit Traker ",
   });
@@ -44,7 +44,7 @@ module.exports.createSession = function (req, res) {
     email: req.body.email,
   }).then((user) => {
     if (!user) {
-      console.log(req.body);
+      // console.log(req.body);
       let errors = [];
       errors.push({ msg: "This email is not registered" });
       res.render("users_sign_in", {
@@ -57,7 +57,7 @@ module.exports.createSession = function (req, res) {
     //---------Redirect to dashboard----------//
     else {
       // console.log(req.body);
-      res.redirect(`/dashboard?user=${user._id}`);
+      res.redirect(`/dashboard?user=${user.email}`);
     }
   });
 };

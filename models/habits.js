@@ -9,6 +9,10 @@ const habitSchema = new mongoose.Schema(
     date: {
       date: String,
     },
+    email: {
+      type: String,
+      required: true,
+    },
     streak: {
       type: Number,
       default: 0,

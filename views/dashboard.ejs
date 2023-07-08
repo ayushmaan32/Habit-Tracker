@@ -6,15 +6,14 @@
     <a class="navbar-brand" href="/"> <strong> Habit Tracker</strong></a>
 
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/dashboard"
-          >Home <span class="sr-only">(current)</span></a
+      <li class="nav-item">
+        <a class="nav-link" href="/weekly-details?email=<%= user.email %>"
+          >Weekly</a
         >
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/weekly-details">Weekly</a>
-      </li>
     </ul>
+
+    <div class="user-info">Hello, <%= user.name%></div>
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -31,7 +30,7 @@
   <!-- input to add habits -->
 
   <div id="add-habit-form" class="rounded bg-blue shadow p-3 mb-5">
-    <form action="/dashboard/create-habit" method="POST">
+    <form action="/dashboard/create-habit?email=<%= user.email%>" method="POST">
       <div class="form-group">
         <label for="inputAdd">What habit do you want to create?</label>
         <div class="input-group">

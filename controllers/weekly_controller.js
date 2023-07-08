@@ -3,11 +3,14 @@ const Habit = require("../models/habits");
 
 // controller for weekly details
 module.exports.weeklyDetails = function (req, res) {
-  Habit.find({})
+  const email = req.query.email;
+  // console.log(email);
+  Habit.find({ email })
     .then((habits) => {
       return res.render("weekly", {
         title: "Habit Tracker",
         habit_list: habits,
+        user: email,
       });
     })
     .catch((err) => {
