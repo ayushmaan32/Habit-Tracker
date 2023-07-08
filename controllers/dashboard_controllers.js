@@ -19,26 +19,6 @@ module.exports.dashboard = async function (req, res) {
     console.error(err);
     res.status(500).send("Internal Server Error");
   }
-
-  // const userId = req.query.user;
-  // console.log(userId);
-  // User.findOne({ _id: userId })
-  //   .then((user) => {
-  //     console.log(user);
-  //     return Habit.find({ email: req.query.user }).exec();
-  //   })
-  //   .then((habits) => {
-  //     // console.log(habits);
-  //     res.render("dashboard", {
-  //       habit_list: habits,
-  //       userId,
-  //       title: "Habit Tracker",
-  //     });
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //     res.status(500).send("Internal Server Error");
-  //   });
 };
 
 // controller to create a habit
@@ -63,7 +43,7 @@ module.exports.createHabit = function (req, res) {
 
   Habit.create(habitData)
     .then((newHabit) => {
-      console.log(newHabit);
+      // console.log(newHabit);
       return res.redirect("back");
     })
     .catch((err) => {
